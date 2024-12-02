@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './components/Home';
-import Home from './components/Quiz';
-import Home from './components/Results';
+import Quiz from './components/Quiz';
+import Results from './components/Results';
 
 
 function App() {
