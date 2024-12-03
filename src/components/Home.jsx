@@ -9,10 +9,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleStart = () => {
-    if (difficulty && category && limit <= 10 && limit > 0) {
+    if (difficulty && category && limit) {
       navigate("/quiz", {state: { difficulty,category, limit } });
     } else {
-      alert("Please select category, difficulty, and enter a valid limit");
+      alert("Please select category and difficulty");
     }
   };
 
@@ -21,9 +21,8 @@ const Home = () => {
       <h1>Select Quiz Options</h1>
       <label>
         Difficulty:
-        <select
-          value={difficulty}
-          onChange={(e) => setDifficulty(e.target.value)}>
+        <select 
+                  value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
           <option value="">Select</option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
@@ -35,8 +34,7 @@ const Home = () => {
       <label>
         Category:
         <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)} >
+                  value={category} onChange={(e) => setCategory(e.target.value)} >
           <option value="">Select</option>
           <option value="linux">Linux</option>
           <option value="react">React</option>
@@ -47,7 +45,8 @@ const Home = () => {
       <br/>
       <label>
         Limit:
-        <input type="number" value={limit} onChange={(e) => setLimit(e.target.value)}/>
+        <input max="10" min="1" type="number" 
+               value={limit} onChange={(e) => setLimit(e.target.value)}/>
       </label>
       <br/>
       <button onClick={handleStart}>Start Quiz</button>
